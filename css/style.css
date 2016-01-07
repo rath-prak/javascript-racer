@@ -1,12 +1,21 @@
+#container{
+	width: 805px;
+	margin: 45px auto;
+	background: #A6A6A6;
+
+}
+
+header{
+	text-align: center;
+}
+
+
 .racer_table td {
-  background-color: white;
+  background: #BABABA;
   height: 20px;
-  width: 20px;
+  width: 35px;
 }
 
 .racer_table td.active {
   background-color: black;
-}
-.racer_table td{
-	background: red;
 }
