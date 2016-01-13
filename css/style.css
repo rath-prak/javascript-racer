@@ -16,6 +16,6 @@ header{
   width: 35px;
 }
 
-.racer_table td.active {
+td.active {
   background-color: black;
 }
