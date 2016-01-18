@@ -1,60 +1,29 @@
-$(document).ready(function() {
-  $(document).on('keyup', advancePlayer);
-  $("#restart").on('click', resetBoard);
-});
+  $(document).ready(function() {
 
-var gameFinished = false;
-var playerThatWon = "";
-var positions = { player1: 1, player2: 1 };
+ 
+      $(document).on('keyup', function(key) {
+        var key = key.which;
+        if (key === 81) { 
+          $("#player1_strip td.active").next().addClass("active");
+        }
+        else if (key === 80) { 
+          $("#player2_strip td.active").next().addClass("active");
+        }
+        $("td.active").prev().removeClass("active");
 
-function advancePlayer() {
-  var keypress = event.which;
-  if (gameFinished === false) {
-    if (keypress === 75)
-      updatePlayerPosition("player1", speed());
-    else if (keypress === 77)
-      updatePlayerPosition("player2", speed());
-  };
+       if ($("#player1_strip td").last().hasClass("active")) {
+            alert("Player 1 wins");
+          }
+        else if ($("#player2_strip td").last().hasClass("active")){
+            alert("Player 2 wins");
+        }
 
-  playerThatWon = winningPlayer();
+   });
 
-  if (playerThatWon) {
-    playerWins();
-  };
-};
+      $( "#restart" ).click(function() {
+        $("td.active").removeClass("active");
+        $("#player1_strip td").first().addClass("active");
+        $("#player2_strip td").first().addClass("active");
+      });
 
-function speed() {
-  return Math.floor(Math.random()*5+1);
-};
-
-var updatePlayerPosition = function(player, position) {
-  positions[player] += position;
-  var playerToUpdate = "#" + player + "_strip";
-  $(playerToUpdate + " .active").removeClass("active");
-  $(playerToUpdate + " td:nth-child(" + positions[player] + ")").addClass("active");
-};
-
-function winningPlayer() {
-  for (var key in positions) {
-    if (positions[key] > 42) {
-      return key;
-    };
-  };
-};
-
-function playerWins() {
-  $("#winner").html("<p>" + playerThatWon + " has won the game!</p>");
-  gameFinished = true;
-  $("#" + playerThatWon + "_strip td").addClass("winner");
-}
-
-function resetBoard() {
-  for (var key in positions)
-    positions[key] = 1;
-  updatePlayerPosition("player1", 0);
-  updatePlayerPosition("player2", 0);
-
-  $("#" + playerThatWon + "_strip td").removeClass("winner");
-  $("#winner").html("")
-  gameFinished = false;
-};
+  }); // end of Jquery

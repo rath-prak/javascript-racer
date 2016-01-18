@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <title>Document</title>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
- <!-- <script src="js/script.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 
 </head>
 <body>
@@ -16,49 +17,34 @@
 
   <div id="container">
       <table class="racer_table">
-        <tr id="player1_strip">
-          <td></td>
-          <td></td>
+        <tr id="player1_strip" class="track">
           <td class="active"></td>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
   
-<!--         </tr>
+        </tr>
         <tr id="player2_strip">
+          <td class="active" class="track"></td>
           <td></td>
           <td></td>
           <td></td>
-          <td class="active"></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
-        </tr> -->
-<script>
-
-
-
-
-function updatePlayerPosition(player1) {
-  var newPosition = 
-  alert("hey");
-}
-
-
-// add event listener to table
-var currentPosition = document.querySelector('.active');
-currentPosition.addEventListener("click", updatePlayerPosition, false);
-
-</script>
-
-
+        </tr>
       </table>
-  	</div><!--END OF CONTAINER-->
+
+    <button id="restart">restart</button>
+
+    </div><!--END OF CONTAINER-->
+
 </body>
 </html>
 
 
-<!-- var currentPosition = document.getElementsByTagName("td")[0]; -->
