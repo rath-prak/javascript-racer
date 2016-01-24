@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
+	<meta charset="UTF-8">
+	<title>Document</title>
 
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/normailze.css">
+
+ <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+
+  <script src="js/jQuery.js"></script>
   <script src="js/script.js"></script>
 
 </head>
@@ -13,36 +17,28 @@
 
   <header>
     <h3>Welcome to Javascript Daytona</h3>
+     <h4>Player 1 press Q, Player 2 press P</h4>
   </header>
 
   <div id="container">
       <table class="racer_table">
-        <tr id="player1_strip" class="track">
-          <td class="active"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+
+        <tr id="player1_strip" class="track">  
+          <td class="active" id="red"></td>
   
         </tr>
-        <tr id="player2_strip">
-          <td class="active" class="track"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr id="player2_strip" class="track">
+          <td class="active" id="yellow"></td>
+         
         </tr>
       </table>
 
-    <button id="restart">restart</button>
+    
 
-    </div><!--END OF CONTAINER-->
+  	</div><!--END OF CONTAINER-->
+
+<button id="restartGame">restart</button>
+
 
 </body>
 </html>

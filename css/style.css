@@ -1,7 +1,31 @@
+body{
+	background: #000 url(../img/background.jpg) no-repeat center center fixed;
+	background-size: cover;
+	height: auto;
+
+}
+
+h3{
+font-family: sans-serif;
+font-size: 32px;
+text-transform: uppercase;
+color: white;
+font-weight: bold;
+
+}
+
+h4{
+font-family: sans-serif;
+text-transform: uppercase;
+color: white;
+font-weight: bold;
+
+}
+
 #container{
 	width: 805px;
 	margin: 45px auto;
-	background: #A6A6A6;
+	background: #B9BDCB;
 
 }
 
@@ -11,11 +35,29 @@ header{
 
 
 .racer_table td {
-  background: #BABABA;
+  background: #4B4B4B;
   height: 20px;
   width: 35px;
 }
 
 td.active {
-  background-color: black;
+  background-color: white;
+}
+
+button{
+	display: block;
+	margin: 0 auto;
+
+	width: 100px;
+	height: 30px;
+	background: #277A36;
+	color: white;
+	text-transform: uppercase;
+}
+
+#red{
+	background-color: red;
+}
+#yellow{
+	background-color: yellow;
 }

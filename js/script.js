@@ -1,6 +1,18 @@
-  $(document).ready(function() {
+$(document).ready(function() {
 
- 
+// Set course length
+  
+var track = prompt("Set the track length between 10 and 30");
+
+
+  for (var i = 1;  i < track; i++){
+        $("#player1_strip").append("<td>");
+        $("#player2_strip").append("<td>");
+    };
+
+
+ // update players position.
+
       $(document).on('keyup', function(key) {
         var key = key.which;
         if (key === 81) { 
@@ -20,10 +32,12 @@
 
    });
 
-      $( "#restart" ).click(function() {
+      $( "#restartGame" ).click(function() {
         $("td.active").removeClass("active");
         $("#player1_strip td").first().addClass("active");
         $("#player2_strip td").first().addClass("active");
       });
 
-  }); // end of Jquery
+}); // end of Jquery
+
+
