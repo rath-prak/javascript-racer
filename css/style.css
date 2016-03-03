@@ -35,13 +35,14 @@ header{
 
 
 .racer_table td {
-  background: #4B4B4B;
-  height: 20px;
-  width: 35px;
+/*  background: #4B4B4B;*/
+  height: 30px;
+  width: 55px;
 }
 
 td.active {
-  background-color: white;
+  	background: url(../img/ford.png) center no-repeat;
+	background-size: contain;
 }
 
 button{

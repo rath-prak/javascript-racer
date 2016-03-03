@@ -4,8 +4,14 @@ $(document).ready(function() {
   
 var track = prompt("Set the track length between 10 and 30");
 
+if(track >= 30){
+    track = 30;
+}else if(track <= 10){
+  track = 10;
+}
+    
 
-  for (var i = 1;  i < track; i++){
+for (var i = 1;  i < track; i++){
         $("#player1_strip").append("<td>");
         $("#player2_strip").append("<td>");
     };
@@ -41,3 +47,5 @@ var track = prompt("Set the track length between 10 and 30");
 }); // end of Jquery
 
 
+// add audio
+// add images to icons
