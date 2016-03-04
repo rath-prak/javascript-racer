@@ -2,25 +2,94 @@ $(document).ready(function() {
 
 // Set course length
   
-var track = prompt("Set the track length between 10 and 30");
+var track = prompt("Choose your Course, SHORT, MEDIUM, LONG").toUpperCase();
+var soundWin = new Audio("audio/cheer.mp3");
 
-if(track >= 30){
-    track = 30;
-}else if(track <= 10){
-  track = 10;
-}
-    
+// if(track >= 30){
+//     track = 30;
+// }else if(track <= 10){
+//   track = 10;
+// }
+function trackLength(){
 
-for (var i = 1;  i < track; i++){
+  if(track === "SHORT"){
+    track = 10;
+  }
+  else if( track === "MEDIUM"){
+    track = 20;
+  }
+  else if( track === "LONG"){
+    track = 35;
+  }
+  else{location.reload()};
+
+   for (var i = 1;  i < track; i++){
         $("#player1_strip").append("<td>");
         $("#player2_strip").append("<td>");
-    };
+    }; 
+}
+
+trackLength(); 
+
+// Add timer clock
+var time = 0;
+var running = false;
+
+function start(){
+  if(running === false){
+    running = true;
+    increment();
+    document.getElementById("startPause").innerHTML = "Pause";
+  }else{
+    running = false;
+    document.getElementById("startPause").innerHTML = "Resume";
+  } 
+}
+
+function stop(){
+   running = false;
+}
+
+function reset(){
+  running = false;
+  time = false;
+  document.getElementById("startPause").innerHTML = "start";
+  document.getElementById("output").innerHTML = "00:0:00";
+
+}
+
+function increment(){
+  if(running === true){
+    setTimeout(function(){
+
+      time++;
+
+      var mins = Math.floor(time/10/60);
+      var sec = Math.floor(time/10);
+      var tenths = time % 10;
+
+      if(mins < 10){
+        mins = "0" + mins;
+      }
+
+      if(sec < 10){
+        sec = "0" + sec;
+      }
+
+      document.getElementById("output").innerHTML = mins + ":" + sec + ":" + "0" + tenths;
+
+      increment();
+
+    }, 100);
+  }
+}
 
 
  // update players position.
 
       $(document).on('keyup', function(key) {
         var key = key.which;
+        
         if (key === 81) { 
           $("#player1_strip td.active").next().addClass("active");
         }
@@ -29,23 +98,38 @@ for (var i = 1;  i < track; i++){
         }
         $("td.active").prev().removeClass("active");
 
+        // if(key === 81 || 82){ //starts timer
+        //   // startPause();
+        // }
+
        if ($("#player1_strip td").last().hasClass("active")) {
             alert("Player 1 wins");
+            soundWin.play();
+            // stop();
+
           }
         else if ($("#player2_strip td").last().hasClass("active")){
             alert("Player 2 wins");
+            soundWin.play();
+            // stop();
         }
 
    });
 
       $( "#restartGame" ).click(function() {
-        $("td.active").removeClass("active");
-        $("#player1_strip td").first().addClass("active");
-        $("#player2_strip td").first().addClass("active");
+        location.reload()
+        // $("td.active").removeClass("active");
+        // $("#player1_strip td").first().addClass("active");
+        // $("#player2_strip td").first().addClass("active");
       });
 
 }); // end of Jquery
 
 
+
+
+
+
 // add audio
 // add images to icons
+// add timer
