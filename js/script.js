@@ -36,26 +36,13 @@ var time = 0;
 var running = false;
 
 function start(){
-  if(running === false){
+  // running === false
     running = true;
-    increment();
-    document.getElementById("startPause").innerHTML = "Pause";
-  }else{
-    running = false;
-    document.getElementById("startPause").innerHTML = "Resume";
-  } 
+    increment();   
 }
 
 function stop(){
    running = false;
-}
-
-function reset(){
-  running = false;
-  time = false;
-  document.getElementById("startPause").innerHTML = "start";
-  document.getElementById("output").innerHTML = "00:0:00";
-
 }
 
 function increment(){
@@ -76,7 +63,7 @@ function increment(){
         sec = "0" + sec;
       }
 
-      document.getElementById("output").innerHTML = mins + ":" + sec + ":" + "0" + tenths;
+      document.getElementById("output").innerHTML = mins + " : " + sec + " : " + "0" + tenths;
 
       increment();
 
@@ -98,20 +85,20 @@ function increment(){
         }
         $("td.active").prev().removeClass("active");
 
-        // if(key === 81 || 82){ //starts timer
-        //   // startPause();
-        // }
+        if(key === 81 || 82){ //starts timer
+          start();
+        }
 
        if ($("#player1_strip td").last().hasClass("active")) {
             alert("Player 1 wins");
             soundWin.play();
-            // stop();
+            stop(); //stop time
 
           }
         else if ($("#player2_strip td").last().hasClass("active")){
             alert("Player 2 wins");
             soundWin.play();
-            // stop();
+            stop(); //stop time
         }
 
    });
